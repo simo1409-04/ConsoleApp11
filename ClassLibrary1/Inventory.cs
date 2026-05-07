@@ -46,7 +46,7 @@ namespace ProductLogic
 
             bool isFound = false;
 
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentException("Name cannot be empty.");
             }
@@ -73,7 +73,7 @@ namespace ProductLogic
         public List<Product> GetProductsByCategory(string category)
         {
 
-            if (string.IsNullOrEmpty(category))
+            if (string.IsNullOrWhiteSpace(category))
             {
 
                 throw new ArgumentException("Category cannot be empty.");
