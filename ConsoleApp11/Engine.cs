@@ -28,7 +28,7 @@ namespace ConsoleApp11
             PrintExpensiveProductAbove100(inventory);
             PrintMostExpensiveProduct(inventory);
             PrintTotalInventoryValue(inventory);
-            PrintAvarageQuantity(inventory);
+            PrintAverageQuantity(inventory);
             PrintUniqueCategories(inventory);
             PrintProductCountByCategory(inventory);
             PrintTotalValuePerCategory(inventory);
@@ -96,7 +96,7 @@ namespace ConsoleApp11
         }
 
 
-        public void PrintAvarageQuantity(Inventory inventory)
+        public void PrintAverageQuantity(Inventory inventory)
         {
 
 

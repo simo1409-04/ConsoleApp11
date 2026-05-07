@@ -28,7 +28,7 @@ namespace ProductLogic
 
             }
 
-            else if(products.Any(x=>x.Name.ToLower()==product.Name.ToLower() && x.Category.ToLower() == product.Category.ToLower()))
+            else if(products.Any(x => String.Equals(x.Name, product.Name, StringComparison.OrdinalIgnoreCase) && String.Equals(x.Category, product.Category, StringComparison.OrdinalIgnoreCase)))
             {
 
                 throw new InvalidOperationException("Product already exists.");
@@ -51,10 +51,10 @@ namespace ProductLogic
                 throw new ArgumentException("Name cannot be empty.");
             }
 
-            else if (products.Any(x => x.Name.ToLower() == name.ToLower()))
+            else if (products.Any(x => String.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase)))
             {
 
-                var product = products.Find(x => x.Name.ToLower() == name.ToLower());
+                var product = products.Find(x => String.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase));
 
 
                 products.Remove(product);
@@ -80,7 +80,7 @@ namespace ProductLogic
 
             }
 
-            List<Product> productsByCategory = products.Where(x => x.Category.ToLower() == category.ToLower()).ToList();
+            List<Product> productsByCategory = products.Where(x => string.Equals(x.Category, category, StringComparison.OrdinalIgnoreCase)  ).ToList();
 
 
             return productsByCategory;
@@ -188,7 +188,7 @@ namespace ProductLogic
         public Dictionary<string, decimal> GetTotalValueByCategory()
         {
 
-            Dictionary<string, decimal> totalValuePerCategory = products.GroupBy(x => x.Category).ToDictionary(x => x.Key, x => x.ToList().Sum(x=>x.GetTotalValue()));
+            Dictionary<string, decimal> totalValuePerCategory = products.GroupBy(x => x.Category).ToDictionary(x => x.Key, x => x.Sum(x=>x.GetTotalValue()));
 
 
             return totalValuePerCategory;
