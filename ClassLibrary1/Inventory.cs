@@ -6,7 +6,7 @@ namespace ProductLogic
 {
     public class Inventory
     {
-        private List<Product> products;
+        private readonly List<Product> products;
 
         public IReadOnlyCollection<Product> Products => products.AsReadOnly();
 
