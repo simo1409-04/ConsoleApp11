@@ -20,7 +20,7 @@ namespace ProductLogic
             private set
             {
 
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Name cannot be empty.");
 
@@ -110,7 +110,7 @@ namespace ProductLogic
 
         public override string ToString()
         {
-            return $"{this.Name} | {this.Category} | {this.Price} lv | Qty: {this.Quantity} | Total: {GetTotalValue():F2} lv";
+            return $"{this.Name} | {this.Category} | {this.Price:F2} lv | Qty: {this.Quantity} | Total: {GetTotalValue():F2} lv";
         }
 
 
